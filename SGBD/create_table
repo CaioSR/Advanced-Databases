@@ -1,0 +1,23 @@
+import sqlite3
+
+#connecting
+conn = sqlite3.connect('censo.db')
+
+#creating a cursor
+cursor = conn.cursor()
+
+#creating table
+cursor.execute("""
+CREATE TABLE data(
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    sexo INTEGER(11) NOT NULL,
+    idade INTEGER(11) NOT NULL,
+    renda INTEGER(11) NOT NULL,
+    escolaridade INTEGER(11) NOT NULL,
+    idioma INTEGER(11) NOT NULL,
+    pais INTEGER(11) NOT NULL,
+    localizador VARCHAR(36) NOT NULL
+);
+""")
+
+conn.close()
